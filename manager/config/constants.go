@@ -113,6 +113,9 @@ const (
 
 	// DefaultJobSyncPeersTimeout is the default timeout for syncing all peers information from the scheduler.
 	DefaultJobSyncPeersTimeout = 10 * time.Minute
+
+	// DefaultJobSyncPeersBatchSize is the default batch size for syncing all peers information from the scheduler.
+	DefaultJobSyncPeersBatchSize = 500
 )
 
 const (

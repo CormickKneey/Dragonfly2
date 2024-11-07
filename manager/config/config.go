@@ -353,6 +353,9 @@ type SyncPeersConfig struct {
 
 	// Timeout is the timeout for syncing peers information from the single scheduler.
 	Timeout time.Duration `yaml:"timeout" mapstructure:"timeout"`
+
+	// BatchSiz is the batch size when operating gorm.
+	BatchSize int `yaml:"batchSize" mapstructure:"batchSize"`
 }
 
 type PreheatTLSClientConfig struct {
@@ -467,8 +470,9 @@ func New() *Config {
 				TLS:             PreheatTLSClientConfig{},
 			},
 			SyncPeers: SyncPeersConfig{
-				Interval: DefaultJobSyncPeersInterval,
-				Timeout:  DefaultJobSyncPeersTimeout,
+				Interval:  DefaultJobSyncPeersInterval,
+				Timeout:   DefaultJobSyncPeersTimeout,
+				BatchSize: DefaultJobSyncPeersBatchSize,
 			},
 		},
 		ObjectStorage: ObjectStorageConfig{
